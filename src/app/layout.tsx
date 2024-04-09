@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
 import Navbar from "./Navbar/Navbar";
+import Footer from "./Footer";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -12,7 +13,8 @@ const poppins = Poppins({
 
 export const metadata: Metadata = {
   title: "Danmazon",
-  description: "We sell stuff. You need stuff. It's a match made in retail heaven.",
+  description:
+    "We sell stuff. You need stuff. It's a match made in retail heaven.",
 };
 
 export default function RootLayout({
@@ -25,6 +27,7 @@ export default function RootLayout({
       <body className={poppins.className}>
         <Navbar />
         <main className="m-auto min-w-[300px] max-w-7xl p-4">{children}</main>
+        <Footer />
       </body>
     </html>
   );
