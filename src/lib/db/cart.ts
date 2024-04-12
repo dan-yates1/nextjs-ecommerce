@@ -1,8 +1,8 @@
-import { cookies } from "next/headers";
-import { prisma } from "./prisma";
+import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 import { Cart, CartItem, Prisma } from "@prisma/client";
 import { getServerSession } from "next-auth";
-import { authOptions } from "@/app/api/auth/[...nextauth]/route";
+import { cookies } from "next/dist/client/components/headers";
+import { prisma } from "./prisma";
 
 export type CartWithProducts = Prisma.CartGetPayload<{
   include: { items: { include: { product: true } } };
@@ -46,7 +46,7 @@ export async function getCart(): Promise<ShoppingCart | null> {
     size: cart.items.reduce((acc, item) => acc + item.quantity, 0),
     subtotal: cart.items.reduce(
       (acc, item) => acc + item.quantity * item.product.price,
-      0,
+      0
     ),
   };
 }
@@ -103,7 +103,7 @@ export async function mergeAnonymousCartIntoUserCart(userId: string) {
       });
 
       await tx.cart.update({
-        where: {id: userCart.id},
+        where: { id: userCart.id },
         data: {
           items: {
             createMany: {
@@ -111,11 +111,10 @@ export async function mergeAnonymousCartIntoUserCart(userId: string) {
                 productId: item.productId,
                 quantity: item.quantity,
               })),
-            }
-          }
-        }
-      })
-
+            },
+          },
+        },
+      });
     } else {
       await tx.cart.create({
         data: {
@@ -135,7 +134,7 @@ export async function mergeAnonymousCartIntoUserCart(userId: string) {
     await tx.cart.delete({
       where: { id: localCart.id },
     });
-
+    // throw Error("Transaction failed");
     cookies().set("localCartId", "");
   });
 }

@@ -1,12 +1,12 @@
+import logo from "@/app/icon.png";
+import { getCart } from "@/lib/db/cart";
+import { getServerSession } from "next-auth";
 import Image from "next/image";
-import icon from "@/app/icon.png";
 import Link from "next/link";
 import { redirect } from "next/navigation";
-import { getCart } from "@/lib/db/cart";
+import { authOptions } from "../api/auth/[...nextauth]/route";
 import ShoppingCartButton from "./ShoppingCartButton";
 import UserMenuButton from "./UserMenuButton";
-import { getServerSession } from "next-auth";
-import { authOptions } from "../api/auth/[...nextauth]/route";
 
 async function searchProducts(formData: FormData) {
   "use server";
@@ -23,11 +23,11 @@ export default async function Navbar() {
   const cart = await getCart();
 
   return (
-    <div className="bg-base-100 ">
+    <div className="bg-base-100">
       <div className="navbar m-auto max-w-7xl flex-col gap-2 sm:flex-row">
         <div className="flex-1">
-          <Link href="/" className="btn btn-ghost text-xl">
-            <Image src={icon} height={40} width={40} alt="Danmazon logo" />
+          <Link href="/" className="btn-ghost btn text-xl normal-case">
+            <Image src={logo} height={40} width={40} alt="Flowmazon logo" />
             Danmazon
           </Link>
         </div>
@@ -37,7 +37,7 @@ export default async function Navbar() {
               <input
                 name="searchQuery"
                 placeholder="Search"
-                className="input input-bordered w-full min-w-[100px]"
+                className="input-bordered input w-full min-w-[100px]"
               />
             </div>
           </form>

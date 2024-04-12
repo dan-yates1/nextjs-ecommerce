@@ -15,14 +15,14 @@ export default function CartEntry({
   cartItem: { product, quantity },
   setProductQuantity,
 }: CartEntryProps) {
-  const [isPending, startTransaction] = useTransition();
+  const [isPending, startTransition] = useTransition();
 
   const quantityOptions: JSX.Element[] = [];
   for (let i = 1; i <= 99; i++) {
     quantityOptions.push(
       <option value={i} key={i}>
         {i}
-      </option>,
+      </option>
     );
   }
 
@@ -44,16 +44,16 @@ export default function CartEntry({
           <div className="my-1 flex items-center gap-2">
             Quantity:
             <select
-              className="select select-bordered w-full max-w-[80px]"
+              className="select-bordered select w-full max-w-[80px]"
               defaultValue={quantity}
               onChange={(e) => {
                 const newQuantity = parseInt(e.currentTarget.value);
-                startTransaction(async () => {
+                startTransition(async () => {
                   await setProductQuantity(product.id, newQuantity);
                 });
               }}
             >
-                <option value={0}>0 (Remove)</option>
+              <option value={0}>0 (Remove)</option>
               {quantityOptions}
             </select>
           </div>

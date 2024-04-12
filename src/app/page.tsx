@@ -45,9 +45,9 @@ export default async function Home({
               <p className="py-6">{products[0].description}</p>
               <Link
                 href={"/products/" + products[0].id}
-                className="btn btn-primary"
+                className="btn-primary btn"
               >
-                CHECK IT OUT!
+                Check it out
               </Link>
             </div>
           </div>
@@ -59,6 +59,7 @@ export default async function Home({
           <ProductCard product={product} key={product.id} />
         ))}
       </div>
+
       {totalPages > 1 && (
         <PaginationBar currentPage={currentPage} totalPages={totalPages} />
       )}

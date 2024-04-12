@@ -1,7 +1,7 @@
 "use client";
 
 import { ComponentProps } from "react";
-import { useFormStatus } from "react-dom";
+import { experimental_useFormStatus as useFormStatus } from "react-dom";
 
 type FormSubmitButtonProps = {
   children: React.ReactNode;
@@ -10,15 +10,15 @@ type FormSubmitButtonProps = {
 
 export default function FormSubmitButton({
   children,
-  className = "",
+  className,
   ...props
 }: FormSubmitButtonProps) {
   const { pending } = useFormStatus();
 
   return (
     <button
-    {...props}
-      className={`btn btn-primary ${className} btn-block`}
+      {...props}
+      className={`btn-primary btn ${className}`}
       type="submit"
       disabled={pending}
     >

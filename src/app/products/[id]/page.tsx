@@ -23,13 +23,14 @@ export async function generateMetadata({
   params: { id },
 }: ProductPageProps): Promise<Metadata> {
   const product = await getProduct(id);
+
   return {
-    title: product.name + " - Danmazon",
+    title: product.name + " - Flowmazon",
     description: product.description,
     openGraph: {
-        images: [{ url: product.imageUrl}],
-    }
-  }
+      images: [{ url: product.imageUrl }],
+    },
+  };
 }
 
 export default async function ProductPage({
@@ -52,7 +53,10 @@ export default async function ProductPage({
         <h1 className="text-5xl font-bold">{product.name}</h1>
         <PriceTag price={product.price} className="mt-4" />
         <p className="py-6">{product.description}</p>
-        <AddToCartButton productId={product.id} incrementProductQuantity={incrementProductQuantity} />
+        <AddToCartButton
+          productId={product.id}
+          incrementProductQuantity={incrementProductQuantity}
+        />
       </div>
     </div>
   );
