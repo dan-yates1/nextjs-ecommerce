@@ -1,34 +1,38 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Danmazon - E-commerce Site
+
+**Danmazon** is an advanced e-commerce platform developed with cutting-edge technologies. This project was created as a code demonstration from March 2024 to April 2024.
+
+## Features
+
+- Developed using Next.js server actions for seamless server-side rendering.
+- Leveraged Prisma for efficient database operations and transactions.
+- Designed a sleek and intuitive user interface with TailwindCSS and DaisyUI.
+- Integrated robust authentication using Next-Auth with Prisma adapter, MongoDB, and Google login.
+- Engineered a dynamic shopping experience including anonymous shopping carts for unauthenticated users.
+- Implemented code formatting and linting tools like Prettier, Eslint, and VS Code extensions to maintain high code quality.
+
+## Technologies Used
+
+- Next.js
+- Prisma
+- TailwindCSS
+- DaisyUI
+- Next-Auth
+- MongoDB
+
+## Demo
+
+You can check out a live demo of Danmazon [here](https://nextjs-ecommerce-gvg91u7gz-danyates1s-projects.vercel.app/).
+
+## Screenshots
+
+![Screenshot 1](https://i.gyazo.com/4cb0b06db86f0ae2aab319ae6c3db8c0.jpg)
+![Screenshot 2](https://i.gyazo.com/0d3bedbf171838d9e8de84bebbee574c.png)
 
 ## Getting Started
 
-First, run the development server:
+To get a local copy up and running, follow these simple steps:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+1. Clone the repository.
+2. Install dependencies using `npm install`.
+3. Run the development server using `npm run dev`.
